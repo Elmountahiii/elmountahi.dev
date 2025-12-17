@@ -11,3 +11,9 @@
 	--font-sans: "Inter", sans-serif;
 	--font-mono: "Fira Code", monospace;
 }
+
+body {
+	background-color: var(--color-background);
+	color: white;
+	font-family: var(--font-sans);
+}

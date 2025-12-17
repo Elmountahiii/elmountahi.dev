@@ -1,6 +1,7 @@
 import AboutSection from "./components/AboutSection";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import JourneySection from "./components/Journey";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 					<main className="space-y-24 pt-24">
 						<Hero />
 						<AboutSection />
+						<JourneySection />
 					</main>
 				</div>
 			</div>

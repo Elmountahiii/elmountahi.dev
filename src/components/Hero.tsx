@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
 						<div className="absolute inset-4 bg-zinc-900 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl z-10">
 							<div className="absolute inset-0 bg-zinc-800 animate-pulse opacity-20"></div>
 							<img
-								src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop"
+								src="https://pub-8fc7302d3d604e5bbda371ecc2381e8c.r2.dev/images/Color%20Correction.png"
 								alt="Suhaib Profile"
 								className="w-full h-full object-cover opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700"
 							/>
