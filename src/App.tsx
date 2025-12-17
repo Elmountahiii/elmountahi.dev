@@ -1,5 +1,20 @@
-function App() {
-	return <h1 className="bg-amber-400">Hello</h1>;
-}
+import AboutSection from "./components/AboutSection";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
 
+function App() {
+	return (
+		<div className="bg-background text-white antialiased">
+			<div className="min-h-screen bg-background selection:bg-accent/30 pb-12 relative">
+				<Header />
+				<div className="max-w-7xl mx-auto px-4 md:px-8">
+					<main className="space-y-24 pt-24">
+						<Hero />
+						<AboutSection />
+					</main>
+				</div>
+			</div>
+		</div>
+	);
+}
 export default App;
