@@ -1,8 +1,4 @@
 import {
-	Star,
-	GitCommit,
-	GitFork,
-	Users,
 	Monitor,
 	PenTool,
 } from "lucide-react";
