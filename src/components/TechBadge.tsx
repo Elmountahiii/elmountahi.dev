@@ -9,58 +9,21 @@ import {
 	Smartphone,
 	Box,
 } from "lucide-react";
-
-// Asset Imports
-import awsIcon from "../assets/aws_icon.svg";
-import dockerIcon from "../assets/docker_icon.svg";
-import goIcon from "../assets/go_icon.svg";
-import javaIcon from "../assets/java_icon.svg";
-import jsIcon from "../assets/javascript_icon.svg";
-import k8sIcon from "../assets/kubernetes_icon.svg";
-import nextIcon from "../assets/nextjs_icon.svg";
-import nodeIcon from "../assets/nodejs_icon.svg";
-import pgIcon from "../assets/postgres_icon.svg";
-import pyIcon from "../assets/python_icon.svg";
-import reactIcon from "../assets/react_icon.svg";
-import sqliteIcon from "../assets/sqlite_icon.svg";
-import tailwindIcon from "../assets/tailwindscss_icon.svg";
-import tsIcon from "../assets/typescript_icon.svg";
+import { getTechIcon } from "../utils/techIcons";
 
 interface TechBadgeProps {
 	name: string;
 	size?: "sm" | "md";
 }
 
-const IconMap: Record<string, string> = {
-	react: reactIcon,
-	"react native": reactIcon,
-	"next.js": nextIcon,
-	"next.js 14": nextIcon,
-	typescript: tsIcon,
-	"node.js": nodeIcon,
-	python: pyIcon,
-	golang: goIcon,
-	go: goIcon,
-	postgresql: pgIcon,
-	postgres: pgIcon,
-	aws: awsIcon,
-	kubernetes: k8sIcon,
-	k8s: k8sIcon,
-	tailwindcss: tailwindIcon,
-	tailwind: tailwindIcon,
-	docker: dockerIcon,
-	java: javaIcon,
-	javascript: jsIcon,
-	sqlite: sqliteIcon,
-};
-
 // Helper to pick an icon or image asset
 const getIconContent = (name: string): string | React.ReactNode => {
 	const lower = name.toLowerCase();
 
-	// Check explicit map first
-	if (IconMap[lower]) {
-		return IconMap[lower];
+	// Check utility first
+	const iconUrl = getTechIcon(name);
+	if (iconUrl) {
+		return iconUrl;
 	}
 
 	// Fallback to Lucide icons for generics
