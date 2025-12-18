@@ -1,4 +1,5 @@
 import AboutSection from "./components/AboutSection";
+import FeaturedProjects from "./components/FeaturedProjects";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import JourneySection from "./components/Journey";
@@ -13,6 +14,7 @@ function App() {
 						<Hero />
 						<AboutSection />
 						<JourneySection />
+						<FeaturedProjects />
 					</main>
 				</div>
 			</div>
