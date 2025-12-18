@@ -23,8 +23,8 @@ const PROJECTS: Project[] = [
 		links: { github: "#", demo: "#" },
 		color: "from-blue-500/20 to-purple-500/20",
 		images: [
-			"https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
-			"https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop",
+			"https://cdn.dribbble.com/userupload/33759247/file/original-843528744c20cc0ac932f935fb5b5d29.png?resize=2048x1535&vertical=center",
+			"https://cdn.dribbble.com/userupload/25339118/file/original-0ec75dc101df0d1296ba97c5c9566ed5.jpg?resize=1504x1128&vertical=center",
 		],
 	},
 	{
@@ -38,8 +38,8 @@ const PROJECTS: Project[] = [
 		links: { github: "#", demo: "#" },
 		color: "from-green-500/20 to-emerald-500/20",
 		images: [
-			"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop",
-			"https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop",
+			"https://cdn.dribbble.com/userupload/18009481/file/original-4595c2853b30d76b95a832c25c593351.png?resize=1504x1128&vertical=center",
+			"https://cdn.dribbble.com/userupload/18009482/file/original-9c3623e007e791570155db06763a2f48.png?resize=1504x1128&vertical=center",
 		],
 	},
 	{
@@ -53,8 +53,8 @@ const PROJECTS: Project[] = [
 		links: { github: "#", demo: "#" },
 		color: "from-orange-500/20 to-red-500/20",
 		images: [
-			"https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-			"https://images.unsplash.com/photo-1558494949-ef2bb6db8744?q=80&w=2070&auto=format&fit=crop",
+			"https://cdn.dribbble.com/userupload/8817245/file/original-fe6d08b5e2b3f7fb2fad97cfbe501ac3.png?resize=2048x1536&vertical=center",
+			"https://cdn.dribbble.com/userupload/8817247/file/original-4079cce3288d91dba7efd112bd595966.png?resize=2048x1280&vertical=center",
 		],
 	},
 	{
@@ -68,8 +68,8 @@ const PROJECTS: Project[] = [
 		links: { github: "#", demo: "#" },
 		color: "from-pink-500/20 to-rose-500/20",
 		images: [
-			"https://images.unsplash.com/photo-1472851294608-4151053804d5?q=80&w=2070&auto=format&fit=crop",
-			"https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070&auto=format&fit=crop",
+			"https://cdn.dribbble.com/userupload/7237622/file/original-8d2612b33cb266fc48b8f75259db7e3e.png?resize=2048x1432&vertical=center",
+			"https://cdn.dribbble.com/userupload/7237623/file/original-832029e6b0d749b3e7c5469314fee5f3.png?resize=2048x1432&vertical=center",
 		],
 	},
 ];
