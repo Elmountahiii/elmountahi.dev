@@ -1,4 +1,5 @@
 import AboutSection from "./components/AboutSection";
+import ContactSection from "./components/ContactSection";
 import FeaturedProjects from "./components/FeaturedProjects";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -15,6 +16,10 @@ function App() {
 						<AboutSection />
 						<JourneySection />
 						<FeaturedProjects />
+						<ContactSection />
+					 <footer className="mt-24 pt-8 border-t border-white/5 text-center text-zinc-600 text-sm font-mono">
+          © {new Date().getFullYear()} Elmountahi.dev. All rights reserved.
+        </footer>
 					</main>
 				</div>
 			</div>

@@ -1,5 +1,13 @@
 import React from "react";
-import { ArrowRight, Download, MapPin, Code2 } from "lucide-react";
+import {
+	ArrowRight,
+	Download,
+	MapPin,
+	Code2,
+	Github,
+	Linkedin,
+	Twitter,
+} from "lucide-react";
 
 const Hero: React.FC = () => {
 	return (
@@ -59,6 +67,38 @@ const Hero: React.FC = () => {
 								<Code2 size={14} className="text-zinc-400" />
 								<span>3+ Years Exp.</span>
 							</div>
+						</div>
+
+						{/* Socials */}
+						<div className="flex gap-4">
+							{[
+								{
+									icon: Github,
+									href: "https://github.com/elmountahiii",
+									label: "GitHub",
+								},
+								{
+									icon: Linkedin,
+									href: "https://www.linkedin.com/in/elmountahiii/",
+									label: "LinkedIn",
+								},
+								{
+									icon: Twitter,
+									href: "https://twitter.com/elmountahiii",
+									label: "Twitter",
+								},
+							].map((social) => (
+								<a
+									key={social.label}
+									href={social.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="p-3 rounded-xl bg-white/5 border border-white/5 text-zinc-400 hover:text-white hover:bg-white/10 transition-all duration-300"
+									aria-label={social.label}
+								>
+									<social.icon size={20} />
+								</a>
+							))}
 						</div>
 					</div>
 				</div>
