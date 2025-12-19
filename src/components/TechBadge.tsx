@@ -16,11 +16,9 @@ interface TechBadgeProps {
 	size?: "sm" | "md";
 }
 
-// Helper to pick an icon or image asset
 const getIconContent = (name: string): string | React.ReactNode => {
 	const lower = name.toLowerCase();
 
-	// Check utility first
 	const iconUrl = getTechIcon(name);
 	if (iconUrl) {
 		return iconUrl;
@@ -59,10 +57,13 @@ const TechBadge: React.FC<TechBadgeProps> = ({ name, size = "md" }) => {
 		/>
 	) : (
 		React.isValidElement(content) &&
-		React.cloneElement(content as React.ReactElement<React.SVGProps<SVGSVGElement>>, {
-			width: size === "sm" ? 12 : 16,
-			height: size === "sm" ? 12 : 16,
-		})
+		React.cloneElement(
+			content as React.ReactElement<React.SVGProps<SVGSVGElement>>,
+			{
+				width: size === "sm" ? 12 : 16,
+				height: size === "sm" ? 12 : 16,
+			},
+		)
 	);
 
 	return (

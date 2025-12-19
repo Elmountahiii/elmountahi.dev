@@ -82,7 +82,6 @@ const CATEGORIES: Category[] = [
 	"DevOps",
 ];
 
-// --- Project Card Component ---
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 	const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -100,9 +99,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
 	return (
 		<div className="group flex flex-col bg-[#0A0A0A] border border-white/10 rounded-3xl overflow-hidden transition-all duration-300 hover:border-white/20 hover:shadow-2xl">
-			{/* Carousel Section */}
 			<div className="relative h-56 sm:h-64 w-full bg-[#050505] border-b border-white/5 group-hover:border-white/10 transition-colors">
-				{/* Slide Content */}
 				<div className="absolute inset-0 transition-opacity duration-500">
 					<img
 						src={slides[currentSlide]}
@@ -111,10 +108,8 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 					/>
 				</div>
 
-				{/* Gradient Overlay for text readability if needed, though we moved text out */}
 				<div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 pointer-events-none"></div>
 
-				{/* Navigation Controls - Visible on Hover */}
 				{slides.length > 1 && (
 					<>
 						<button
@@ -132,7 +127,6 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 							<ChevronRight size={18} />
 						</button>
 
-						{/* Indicators */}
 						<div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
 							{slides.map((_, idx) => (
 								<button
@@ -154,14 +148,13 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 				)}
 			</div>
 
-			{/* Content Section */}
 			<div className="flex-1 p-6 flex flex-col">
 				<div className="mb-4">
 					<div className="flex items-center justify-between mb-2">
 						<span className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
 							{project.subtitle}
 						</span>
-						{/* Small colored accent based on category */}
+
 						<span
 							className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.color}`}
 						></span>
@@ -174,14 +167,12 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 					</p>
 				</div>
 
-				{/* Tags */}
 				<div className="flex flex-wrap gap-2 mb-6 mt-auto">
 					{project.tags.map((tag) => (
 						<TechBadge key={tag} name={tag} size="sm" />
 					))}
 				</div>
 
-				{/* Action Buttons Footer */}
 				<div className="pt-4 border-t border-white/5 grid grid-cols-2 gap-3">
 					{project.links.demo ? (
 						<a
@@ -230,8 +221,6 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 	);
 };
 
-// --- Main Component ---
-
 const FeaturedProjects: React.FC = () => {
 	const [activeCategory, setActiveCategory] = useState<Category>("All");
 
@@ -242,7 +231,6 @@ const FeaturedProjects: React.FC = () => {
 
 	return (
 		<section id="work" className="space-y-8">
-			{/* Header */}
 			<div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
 				<div className="space-y-2">
 					<h2 className="text-3xl font-bold text-white">Selected Works.</h2>
@@ -252,7 +240,6 @@ const FeaturedProjects: React.FC = () => {
 					</p>
 				</div>
 
-				{/* Filter Pills */}
 				<div className="flex flex-wrap gap-1 bg-[#111] border border-white/5 p-1 rounded-lg">
 					{CATEGORIES.map((cat) => (
 						<button
@@ -271,7 +258,6 @@ const FeaturedProjects: React.FC = () => {
 				</div>
 			</div>
 
-			{/* Grid Layout */}
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 				{filteredProjects.map((project) => (
 					<ProjectCard key={project.id} project={project} />

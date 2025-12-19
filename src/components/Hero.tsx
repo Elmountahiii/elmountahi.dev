@@ -69,7 +69,6 @@ const Hero: React.FC = () => {
 							</div>
 						</div>
 
-						{/* Socials */}
 						<div className="flex gap-4">
 							{[
 								{

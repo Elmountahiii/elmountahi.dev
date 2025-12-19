@@ -94,7 +94,6 @@ const Header: React.FC = () => {
 					ElMountahi.dev
 				</a>
 
-				{/* Desktop Nav */}
 				<nav className="hidden md:flex items-center gap-1 bg-card/50 p-1 rounded-full border border-white/5 backdrop-blur-sm">
 					{nav_items.map((item) => {
 						const isActive =
@@ -117,7 +116,6 @@ const Header: React.FC = () => {
 					})}
 				</nav>
 
-				{/* Mobile Menu Toggle */}
 				<button
 					className="md:hidden p-2 text-zinc-400 hover:text-white z-50 relative"
 					onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -125,7 +123,6 @@ const Header: React.FC = () => {
 					{mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
 				</button>
 
-				{/* Mobile Nav Overlay */}
 				<div
 					className={`fixed inset-0 bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden ${
 						mobileMenuOpen

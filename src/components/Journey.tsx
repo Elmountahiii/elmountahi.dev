@@ -92,7 +92,6 @@ const JourneySection: React.FC = () => {
 			id="education"
 			className="bg-card rounded-3xl border border-white/5 overflow-hidden flex flex-col md:flex-row"
 		>
-			{/* Sidebar Navigation */}
 			<div className="w-full md:w-64 bg-[#111] border-b md:border-b-0 md:border-r border-white/5 p-6 flex flex-col shrink-0">
 				<div className="mb-6">
 					<h2 className="text-xl font-bold text-white">Journey</h2>
@@ -132,14 +131,11 @@ const JourneySection: React.FC = () => {
 				</div>
 			</div>
 
-			{/* Main Content Area */}
 			<div className="flex-1 bg-[#0a0a0a] min-h-[400px]">
-				{/* Experience Content */}
 				{activeTab === "experience" && (
 					<div className="animate-in fade-in slide-in-from-right-4 duration-300 h-full p-6 md:p-8">
 						{EXPERIENCE.length > 0 ? (
 							<div className="space-y-0 relative">
-								{/* Connector Line */}
 								<div className="absolute left-[19px] top-4 bottom-4 w-[2px] bg-[#1a1a1a]"></div>
 
 								{EXPERIENCE.map((job, index) => (
@@ -147,7 +143,6 @@ const JourneySection: React.FC = () => {
 										key={index}
 										className="relative pl-10 pb-8 last:pb-0 group"
 									>
-										{/* Dot */}
 										<div
 											className={`absolute left-[13px] top-1.5 w-3.5 h-3.5 rounded-full border-[3px] z-10 transition-colors ${
 												job.current
@@ -201,7 +196,6 @@ const JourneySection: React.FC = () => {
 					</div>
 				)}
 
-				{/* Education Content */}
 				{activeTab === "education" && (
 					<div className="animate-in fade-in slide-in-from-right-4 duration-300 h-full p-6 md:p-8 flex flex-col gap-4">
 						{EDUCATION.map((edu, index) => (
@@ -243,7 +237,6 @@ const JourneySection: React.FC = () => {
 					</div>
 				)}
 
-				{/* Certifications Content */}
 				{activeTab === "certifications" && (
 					<div className="animate-in fade-in slide-in-from-right-4 duration-300 h-full p-6 md:p-8">
 						<div className="grid grid-cols-1 gap-3">

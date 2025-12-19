@@ -30,7 +30,7 @@ const ContactSection: React.FC = () => {
 		if (!formState.name || !formState.email || !formState.message) return;
 
 		setIsSubmitting(true);
-		// Simulate network request
+
 		await new Promise((resolve) => setTimeout(resolve, 1500));
 		setIsSubmitting(false);
 		setIsSent(true);
@@ -41,9 +41,7 @@ const ContactSection: React.FC = () => {
 
 	return (
 		<section id="contact" className="py-12 md:py-20">
-			{/* Layout container */}
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-				{/* Left: Info */}
 				<div className="space-y-8 animate-in slide-in-from-bottom-4 duration-700">
 					<div>
 						<h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
@@ -124,7 +122,6 @@ const ContactSection: React.FC = () => {
 					</div>
 				</div>
 
-				{/* Right: Form */}
 				<div className="bg-[#111] rounded-3xl p-6 md:p-8 border border-white/5 animate-in slide-in-from-bottom-8 duration-700 delay-100">
 					<form onSubmit={handleSubmit} className="space-y-6">
 						<div className="space-y-4">
