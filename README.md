@@ -1,75 +1,104 @@
-# React + TypeScript + Vite
+# My Portfolio Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, sleek portfolio template built with **React 19**, **TypeScript**, **Vite**, and **Tailwind CSS 4**. Perfect for developers, designers, and creative professionals who want a beautiful, fully-featured portfolio without the hassle of building from scratch.
 
-Currently, two official plugins are available:
+![Portfolio Preview](./images/main_image.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Features
 
-## React Compiler
+- **Modern Design**: Clean, minimalist aesthetic with smooth animations
+- **Fully Responsive**: Works perfectly on desktop, tablet, and mobile devices
+- **Dark Mode Ready**: Beautiful dark theme optimized for eye comfort
+- **TypeScript Support**: Full type safety with strict TypeScript configuration
+- **Tailwind CSS 4**: Utility-first CSS framework for rapid styling
+- **Lucide Icons**: Beautiful, customizable SVG icons
+- **React 19**: Latest React features with improved performance
+- **Fast Development**: Hot Module Replacement (HMR) with Vite for instant feedback
+- **SEO Friendly**: Semantic HTML and meta tags ready for customization
+- **Docker Ready**: Includes Docker and Docker Compose configuration
+- **Production Ready**: Optimized build process with ESLint configuration
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+##  Sections Included
 
-Note: This will impact Vite dev & build performances.
+- **Header**: Navigation bar with smooth scrolling
+- **Hero Section**: Eye-catching introduction with call-to-action
+- **About Section**: Tell your story and highlight your skills
+- **Journey Section**: Timeline of your professional experience
+- **Featured Projects**: Showcase your best work
+- **Contact Section**: Multiple ways for visitors to reach you
+- **Responsive Footer**: Clean footer with copyright info
 
-## Expanding the ESLint configuration
+##  Quick Start
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 16+ or Bun
+- npm, yarn, or bun package manager
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Elmountahiii/portfolio
+   cd portfolio
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   bun install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   Navigate to `http://localhost:5173` to see your portfolio
+
+## Customization Guide
+
+### Personal Information
+
+Edit the content in your components:
+
+- **Header & Navigation**: `src/components/Header.tsx`
+- **Hero Section**: `src/components/Hero.tsx`
+- **About Section**: `src/components/AboutSection.tsx`
+- **Experience/Journey**: `src/components/Journey.tsx`
+- **Projects**: `src/components/FeaturedProjects.tsx`
+- **Contact**: `src/components/ContactSection.tsx`
+
+
+## Tech Stack
+
+- **Frontend Framework**: React 19
+- **Language**: TypeScript 5.9
+- **Build Tool**: Vite 7
+- **Styling**: Tailwind CSS 4
+- **Icons**: Lucide React
+- **Code Quality**: ESLint
+- **Runtime**: Node.js / Bun
+
+##  Docker Deployment
+
+### Using Docker Compose
+
+```bash
+docker-compose up --build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The portfolio will be available at `http://localhost:80`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Manual Docker Build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+docker build -t my-portfolio .
+docker run -p 80:80 my-portfolio
 ```
+
+Built with ❤️ by [ElMountahi](https://github.com/elmountahiii)
