@@ -7,10 +7,10 @@ services:
       - "8081:80"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portfolio-app.rule=Host(`portfolio.elmountahi.dev`) || Host(`www.elmountahi.dev`) || Host(`elmountahi.dev`)"
-      - "traefik.http.services.portfolio-app.loadbalancer.server.port=8081"
-      - "traefik.http.routers.portfolio-app.tls=true"
-      - "traefik.http.routers.portfolio-app.tls.certresolver=myresolver"
+      - "traefik.http.routers.portfolioapp.rule=Host(`portfolio.elmountahi.dev`)"
+      - "traefik.http.services.portfolioapp.loadbalancer.server.port=8081"
+      - "traefik.http.routers.portfolioapp.tls=true"
+      - "traefik.http.routers.portfolioapp.tls.certresolver=myresolver"
 
     environment:
       - NODE_ENV=production
