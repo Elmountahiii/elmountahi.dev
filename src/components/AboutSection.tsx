@@ -35,7 +35,7 @@ const TECH_CATEGORIES = [
 
 const AboutSection: React.FC = () => {
 	return (
-		<section id="about" className="py-24 relative overflow-hidden">
+		<section id="tech" className="py-24 relative overflow-hidden">
 			{/* Background Ambient Effects */}
 			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 pointer-events-none">
 				<div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px]"></div>
