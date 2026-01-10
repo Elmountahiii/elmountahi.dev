@@ -51,4 +51,5 @@ export interface Project {
 	};
 	color: string;
 	images: string[];
+	featured?: boolean;
 }
