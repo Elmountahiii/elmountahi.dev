@@ -5,8 +5,9 @@ import {
 	ChevronRight,
 	ExternalLink,
 	Layers,
+	Code2,
 } from "lucide-react";
-import TechBadge from "./TechBadge";
+import { getTechIcon } from "../utils/techIcons";
 import type { Category, Project } from "../types";
 
 // --- Data ---
@@ -168,6 +169,36 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 					project.featured ? "lg:w-[45%]" : ""
 				}`}
 			>
+				<div className="mb-10">
+					<div className="flex -space-x-3 sm:-space-x-4">
+						{project.tags.map((tag, idx) => {
+							const icon = getTechIcon(tag);
+							return (
+								<div
+									key={tag}
+									className="group/tech-icon relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border-4 border-[#0A0A0A] bg-[#151515] flex items-center justify-center p-2.5 sm:p-3 shadow-2xl hover:-translate-y-3 hover:rotate-3 hover:z-20 transition-all duration-500 cursor-help"
+									style={{ zIndex: 10 - idx }}
+								>
+									{icon ? (
+										<img
+											src={icon}
+											alt={tag}
+											className="w-full h-full object-contain"
+										/>
+									) : (
+										<Code2 size={24} className="text-zinc-600" />
+									)}
+
+									<div className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-xl bg-white text-black text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover/tech-icon:opacity-100 transition-all duration-300 translate-y-2 group-hover/tech-icon:translate-y-0 pointer-events-none shadow-2xl whitespace-nowrap z-30">
+										<div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rotate-45 -z-10"></div>
+										{tag}
+									</div>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+
 				<div className="mb-6">
 					<div className="flex items-center gap-3 mb-3">
 						<span className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em]">
@@ -183,12 +214,6 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 					<p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
 						{project.description}
 					</p>
-				</div>
-
-				<div className="flex flex-wrap gap-2 mb-8">
-					{project.tags.map((tag) => (
-						<TechBadge key={tag} name={tag} size="sm" />
-					))}
 				</div>
 
 				<div className="mt-auto pt-6 border-t border-white/5 flex flex-col sm:flex-row gap-4">
