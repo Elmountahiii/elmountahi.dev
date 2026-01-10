@@ -45,7 +45,7 @@ const CERTIFICATIONS: Certification[] = [
 			"https://pub-8fc7302d3d604e5bbda371ecc2381e8c.r2.dev/images/Screenshot%202025-12-17%20at%2015.49.26.png",
 		link: "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/8b7e6358-1505-4913-8dbe-04480e0ea346-youssef-el-mountahi-a09b2aa6-ef8f-48d5-9143-7c9a332bc71a-certificate.pdf",
 		credentialImage:
-			"https://pub-8fc7302d3d604e5bbda371ecc2381e8c.r2.dev/images/Screenshot%202025-12-17%20at%2015.49.26.png",
+			"/kcna_cert.png",
 	},
 ];
 

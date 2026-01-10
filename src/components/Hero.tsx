@@ -8,7 +8,6 @@ import {
 	Linkedin,
 	Twitter,
 } from "lucide-react";
-import TechBadge from "./TechBadge";
 
 const Hero: React.FC = () => {
 	return (
@@ -29,7 +28,7 @@ const Hero: React.FC = () => {
 						<div className="absolute -inset-1 bg-linear-to-r from-blue-500 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
 						<div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-white/10 bg-zinc-900 shadow-2xl">
 							<img
-								src="https://pub-8fc7302d3d604e5bbda371ecc2381e8c.r2.dev/images/Color%20Correction.png"
+								src="/my_image.png"
 								alt="Youssef El Mountahi"
 								className="w-full h-full object-cover transition-all duration-500"
 							/>
