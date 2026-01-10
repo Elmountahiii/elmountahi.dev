@@ -73,16 +73,8 @@ const Hero: React.FC = () => {
 					</a>
 				</div>
 
-				{/* Tech Stack & Location */}
-				<div className="pt-12 border-t border-white/5 flex flex-col items-center gap-8 animate-in slide-in-from-bottom-8 duration-1000 delay-400">
-					<div className="flex flex-wrap justify-center gap-3">
-						{["React", "Next.js", "TypeScript", "Node.js", "Tailwind"].map(
-							(tech) => (
-								<TechBadge key={tech} name={tech} />
-							),
-						)}
-					</div>
-
+				{/* Location */}
+				<div className=" flex flex-col items-center gap-12 animate-in slide-in-from-bottom-8 duration-1000 delay-400">
 					<div className="flex flex-wrap items-center justify-center gap-6 text-sm font-mono text-zinc-500">
 						<div className="flex items-center gap-2">
 							<MapPin size={14} className="text-zinc-400" />
