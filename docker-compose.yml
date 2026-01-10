@@ -4,19 +4,6 @@ services:
     container_name: my-portfolio
     restart: always
     ports:
-      - "8081:80"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portfolioapp.rule=Host(`portfolio.elmountahi.dev`) || Host(`elmountahi.dev`) || Host(`www.elmountahi.dev`)"
-      - "traefik.http.services.portfolioapp.loadbalancer.server.port=80"
-      - "traefik.http.routers.portfolioapp.tls=true"
-      - "traefik.http.routers.portfolioapp.tls.certresolver=myresolver"
-
+      - "80"
     environment:
       - NODE_ENV=production
-    networks:
-      - web
-
-networks:
-  web:
-    external: true
