@@ -7,13 +7,15 @@ import {
 	Github,
 	Linkedin,
 	Twitter,
-	Sparkles,
 } from "lucide-react";
 import TechBadge from "./TechBadge";
 
 const Hero: React.FC = () => {
 	return (
-		<section id="home" className="relative pt-20 pb-20 md:pt-32 md:pb-40 overflow-hidden">
+		<section
+			id="home"
+			className="relative pt-20 pb-20 md:pt-32 md:pb-40 overflow-hidden"
+		>
 			{/* Background Decorative Elements */}
 			<div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
 				<div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] animate-pulse"></div>
@@ -29,28 +31,19 @@ const Hero: React.FC = () => {
 							<img
 								src="https://pub-8fc7302d3d604e5bbda371ecc2381e8c.r2.dev/images/Color%20Correction.png"
 								alt="Youssef El Mountahi"
-								className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+								className="w-full h-full object-cover transition-all duration-500"
 							/>
 						</div>
-						<div className="absolute -bottom-1 -right-1 w-6 h-6 bg-zinc-900 rounded-full flex items-center justify-center border border-white/10">
-							<div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
-						</div>
-					</div>
-					
-					<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-400 text-xs font-medium">
-						<Sparkles size={12} className="text-blue-400" />
-						<span>Available for new opportunities</span>
 					</div>
 				</div>
 
 				{/* Hero Content */}
 				<div className="space-y-6 animate-in slide-in-from-bottom-8 duration-1000 delay-200">
 					<h1 className="text-5xl md:text-8xl font-bold tracking-tight text-white leading-[1.1]">
-						Building digital{" "}
-						<span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-500">
-							experiences
+						Full Stack{" "}
+						<span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-rose-500">
+							Developer
 						</span>{" "}
-						that matter.
 					</h1>
 					<p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
 						Hi, I'm Youssef. A Full Stack Developer based in Morocco. I
@@ -62,30 +55,32 @@ const Hero: React.FC = () => {
 				{/* Actions */}
 				<div className="flex flex-wrap items-center justify-center gap-4 animate-in slide-in-from-bottom-8 duration-1000 delay-300">
 					<a
-						href="#work"
+						href="/resume.pdf"
 						className="px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-zinc-200 transition-all flex items-center gap-2 group shadow-xl shadow-white/5"
 					>
-						Explore My Work
+						<Download size={18} />
+						Resume
+					</a>
+					<a
+						href="#work"
+						className="px-8 py-4 rounded-full bg-white/5 text-white font-medium border border-white/10 hover:bg-white/10 transition-all flex items-center gap-2 group"
+					>
+						My Projects
 						<ArrowRight
 							size={18}
 							className="group-hover:translate-x-1 transition-transform"
 						/>
-					</a>
-					<a
-						href="/resume.pdf"
-						className="px-8 py-4 rounded-full bg-white/5 text-white font-medium border border-white/10 hover:bg-white/10 transition-all flex items-center gap-2"
-					>
-						<Download size={18} />
-						Resume
 					</a>
 				</div>
 
 				{/* Tech Stack & Location */}
 				<div className="pt-12 border-t border-white/5 flex flex-col items-center gap-8 animate-in slide-in-from-bottom-8 duration-1000 delay-400">
 					<div className="flex flex-wrap justify-center gap-3">
-						{["React", "Next.js", "TypeScript", "Node.js", "Tailwind"].map((tech) => (
-							<TechBadge key={tech} name={tech} />
-						))}
+						{["React", "Next.js", "TypeScript", "Node.js", "Tailwind"].map(
+							(tech) => (
+								<TechBadge key={tech} name={tech} />
+							),
+						)}
 					</div>
 
 					<div className="flex flex-wrap items-center justify-center gap-6 text-sm font-mono text-zinc-500">
