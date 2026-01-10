@@ -44,8 +44,7 @@ const CERTIFICATIONS: Certification[] = [
 		image:
 			"https://pub-8fc7302d3d604e5bbda371ecc2381e8c.r2.dev/images/Screenshot%202025-12-17%20at%2015.49.26.png",
 		link: "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/8b7e6358-1505-4913-8dbe-04480e0ea346-youssef-el-mountahi-a09b2aa6-ef8f-48d5-9143-7c9a332bc71a-certificate.pdf",
-		credentialImage:
-			"/kcna_cert.png",
+		credentialImage: "/kcna_cert.png",
 	},
 ];
 
@@ -53,7 +52,9 @@ type TabType = "experience" | "education" | "certifications";
 
 const JourneySection: React.FC = () => {
 	const [activeTab, setActiveTab] = useState<TabType>("education");
-	const [expandedCerts, setExpandedCerts] = useState<number[]>([]);
+	const [expandedCerts, setExpandedCerts] = useState<number[]>(
+		CERTIFICATIONS.map((_, i) => i),
+	);
 
 	const toggleCert = (index: number) => {
 		setExpandedCerts((prev) =>
@@ -138,9 +139,9 @@ const JourneySection: React.FC = () => {
 							<div className="space-y-0 relative">
 								<div className="absolute left-[19px] top-4 bottom-4 w-[2px] bg-[#1a1a1a]"></div>
 
-								{EXPERIENCE.map((job, index) => (
+								{EXPERIENCE.map((job) => (
 									<div
-										key={index}
+										key={job.role}
 										className="relative pl-10 pb-8 last:pb-0 group"
 									>
 										<div
@@ -198,9 +199,9 @@ const JourneySection: React.FC = () => {
 
 				{activeTab === "education" && (
 					<div className="animate-in fade-in slide-in-from-right-4 duration-300 h-full p-6 md:p-8 flex flex-col gap-4">
-						{EDUCATION.map((edu, index) => (
+						{EDUCATION.map((edu) => (
 							<div
-								key={index}
+								key={edu.degree}
 								className="p-5 rounded-2xl bg-[#111] border border-white/5 flex gap-5 items-start hover:border-purple-500/20 transition-colors group"
 							>
 								<div className="p-3 bg-[#1a1a1a] rounded-xl shrink-0 border border-white/5 flex items-center justify-center w-16 h-16">
@@ -227,8 +228,8 @@ const JourneySection: React.FC = () => {
 										{edu.institution}
 									</p>
 									<ul className="text-sm text-zinc-500 leading-relaxed list-disc list-inside space-y-1">
-										{edu.description.map((desc, i) => (
-											<li key={i}>{desc}</li>
+										{edu.description.map((desc) => (
+											<li key={desc}>{desc}</li>
 										))}
 									</ul>
 								</div>
@@ -239,72 +240,97 @@ const JourneySection: React.FC = () => {
 
 				{activeTab === "certifications" && (
 					<div className="animate-in fade-in slide-in-from-right-4 duration-300 h-full p-6 md:p-8">
-						<div className="grid grid-cols-1 gap-3">
+						<div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 							{CERTIFICATIONS.map((cert, index) => (
 								<div
-									key={index}
-									className="rounded-xl bg-[#111] border border-white/5 overflow-hidden transition-colors group"
+									key={cert.title}
+									className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+										expandedCerts.includes(index)
+											? "bg-[#111] border-green-500/30 ring-1 ring-green-500/20"
+											: "bg-[#111] border-white/5 hover:border-green-500/20 hover:bg-[#151515]"
+									}`}
 								>
-									<div className="p-3 flex items-center justify-between hover:bg-white/[0.02]">
-										<button
-											type="button"
-											className="flex items-center gap-4 flex-1 text-left cursor-pointer"
-											onClick={() => toggleCert(index)}
-										>
-											<div className="w-10 h-10 rounded-lg bg-[#1a1a1a] flex items-center justify-center shrink-0 border border-white/5">
-												<img
-													src={cert.image}
-													alt={cert.issuer}
-													className="w-5 h-5 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
-												/>
-											</div>
-											<div>
-												<h4 className="text-sm font-medium text-zinc-200 group-hover:text-white transition-colors">
+									<div className="p-4 flex items-start gap-4">
+										<div className="w-12 h-12 rounded-xl bg-[#1a1a1a] flex items-center justify-center shrink-0 border border-white/5 group-hover:scale-110 transition-transform">
+											<img
+												src={cert.image}
+												alt={cert.issuer}
+												className="w-7 h-7 object-contain"
+											/>
+										</div>
+										<div className="flex-1 min-w-0">
+											<div className="flex justify-between items-start gap-2">
+												<h4 className="text-sm font-bold text-white leading-tight truncate">
 													{cert.title}
 												</h4>
-												<p className="text-xs text-zinc-500">
-													{cert.issuer} • {cert.date}
-												</p>
+												<span className="text-[10px] font-mono text-zinc-500 bg-white/5 px-2 py-0.5 rounded">
+													{cert.date}
+												</span>
 											</div>
-										</button>
-										<div className="flex items-center gap-2 pl-4">
-											{cert.link && (
-												<a
-													href={cert.link}
-													target="_blank"
-													rel="noopener noreferrer"
-													className="p-2 text-zinc-500 hover:text-white hover:bg-white/10 rounded-lg transition-all z-10"
-													title="View Certificate"
-												>
-													<ExternalLink size={16} />
-												</a>
-											)}
-											<button
-												type="button"
-												onClick={() => toggleCert(index)}
-												className="p-1 text-zinc-700 hover:text-zinc-500 transition-colors"
-											>
-												<ChevronDown
-													size={16}
-													className={`transition-transform duration-300 ${
-														expandedCerts.includes(index) ? "" : "-rotate-90"
+											<p className="text-xs text-green-400 mt-0.5 font-medium">
+												{cert.issuer}
+											</p>
+
+											<div className="flex items-center gap-3 mt-4">
+												<button
+													type="button"
+													onClick={() => toggleCert(index)}
+													className={`flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider transition-colors ${
+														expandedCerts.includes(index)
+															? "text-white"
+															: "text-zinc-500 hover:text-zinc-300"
 													}`}
-												/>
-											</button>
+												>
+													{expandedCerts.includes(index)
+														? "Hide Preview"
+														: "View Preview"}
+													<ChevronDown
+														size={14}
+														className={`transition-transform duration-300 ${
+															expandedCerts.includes(index) ? "rotate-180" : ""
+														}`}
+													/>
+												</button>
+												{cert.link && (
+													<a
+														href={cert.link}
+														target="_blank"
+														rel="noopener noreferrer"
+														className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-zinc-500 hover:text-white transition-colors"
+													>
+														Verify
+														<ExternalLink size={12} />
+													</a>
+												)}
+											</div>
 										</div>
 									</div>
+
 									{expandedCerts.includes(index) && (
-										<div className="px-3 pb-3 pt-0 animate-in slide-in-from-top-2 duration-200">
-											<div className="mt-2 p-4 bg-[#0a0a0a] rounded-lg border border-white/5 flex justify-center">
+										<div className="px-4 pb-4 animate-in slide-in-from-top-2 duration-300">
+											<div className="relative mt-2 rounded-xl overflow-hidden border border-white/10 bg-black/40 group/cert">
 												{cert.credentialImage ? (
-													<img
-														src={cert.credentialImage}
-														alt={`${cert.title} Certificate`}
-														className="max-h-64 object-contain rounded-md"
-													/>
+													<div className="relative">
+														<img
+															src={cert.credentialImage}
+															alt={`${cert.title} Certificate`}
+															className="w-full h-auto object-contain max-h-[400px]"
+														/>
+														<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/cert:opacity-100 transition-opacity flex items-end justify-center p-4">
+															<a
+																href={cert.link}
+																target="_blank"
+																rel="noreferrer"
+																className="px-4 py-2 bg-white text-black text-xs font-bold rounded-full transform translate-y-2 group-hover/cert:translate-y-0 transition-transform"
+															>
+																Open Full Certificate
+															</a>
+														</div>
+													</div>
 												) : (
-													<div className="text-zinc-500 text-sm py-8">
-														No certificate image available
+													<div className="py-12 flex flex-col items-center justify-center text-zinc-600">
+														<Award size={32} className="mb-2 opacity-20" />
+														<p className="text-xs">Preview unavailable</p>
 													</div>
 												)}
 											</div>
