@@ -91,7 +91,7 @@ const JourneySection: React.FC = () => {
 
 	return (
 		<section
-			id={sectionId}
+			id="journey"
 			className="bg-card rounded-3xl border border-white/5 overflow-hidden flex flex-col md:flex-row"
 		>
 			<div className="w-full md:w-64 bg-[#111] border-b md:border-b-0 md:border-r border-white/5 p-6 flex flex-col shrink-0">

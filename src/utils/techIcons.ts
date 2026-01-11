@@ -14,6 +14,8 @@ import ReactIcon from "../assets/react_icon.svg";
 import SqliteIcon from "../assets/sqlite_icon.svg";
 import TailwindIcon from "../assets/tailwindscss_icon.svg";
 import TypescriptIcon from "../assets/typescript_icon.svg";
+import GithubIcon from "../assets/github_icon.svg";
+import VitejsIcon from "../assets/vitejs_icon.svg";
 
 export const getTechIcon = (techName: string): string | null => {
 	const normalizedName = techName.toLowerCase().replace(/[\s.]/g, "");
@@ -47,6 +49,9 @@ export const getTechIcon = (techName: string): string | null => {
 		tailwind: TailwindIcon,
 		typescript: TypescriptIcon,
 		ts: TypescriptIcon,
+		github: GithubIcon,
+		vitejs: VitejsIcon,
+		vite: VitejsIcon,
 	};
 
 	return iconMap[normalizedName] || null;
