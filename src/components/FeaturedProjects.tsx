@@ -6,6 +6,7 @@ import {
 	ExternalLink,
 	Layers,
 	Code2,
+	Loader2,
 } from "lucide-react";
 import { getTechIcon } from "../utils/techIcons";
 import type { Category, Project } from "../types";
@@ -80,17 +81,35 @@ const CATEGORIES: Category[] = ["All", "Full Stack", "Frontend", "Backend"];
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 	const [currentSlide, setCurrentSlide] = useState(0);
+	const [imageLoading, setImageLoading] = useState(true);
+	const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
 
 	const slides = project.images;
 
+	const handleImageLoad = (index: number) => {
+		setLoadedImages((prev) => new Set(prev).add(index));
+		if (index === currentSlide) {
+			setImageLoading(false);
+		}
+	};
+
+	const handleSlideChange = (newIndex: number) => {
+		if (!loadedImages.has(newIndex)) {
+			setImageLoading(true);
+		}
+		setCurrentSlide(newIndex);
+	};
+
 	const nextSlide = (e: React.MouseEvent) => {
 		e.preventDefault();
-		setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+		const newIndex = currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
+		handleSlideChange(newIndex);
 	};
 
 	const prevSlide = (e: React.MouseEvent) => {
 		e.preventDefault();
-		setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+		const newIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
+		handleSlideChange(newIndex);
 	};
 
 	return (
@@ -106,12 +125,29 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 						: "h-64 sm:h-72"
 				}`}
 			>
+				{imageLoading && (
+					<div className="absolute inset-0 flex items-center justify-center bg-[#050505] z-20">
+						<div className="flex flex-col items-center gap-4">
+							<Loader2 size={32} className="text-white/30 animate-spin" />
+							<div className="h-1 w-32 bg-white/5 rounded-full overflow-hidden">
+								<div className="h-full w-1/2 bg-white/20 rounded-full animate-pulse"></div>
+							</div>
+						</div>
+					</div>
+				)}
+
 				<div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
-					<img
-						src={slides[currentSlide]}
-						alt={project.title}
-						className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-					/>
+					{slides.map((slide, idx) => (
+						<img
+							key={`${project.id}-img-${idx}`}
+							src={slide}
+							alt={`${project.title} - Image ${idx + 1}`}
+							className={`w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 ${
+								idx === currentSlide ? "block" : "hidden"
+							}`}
+							onLoad={() => handleImageLoad(idx)}
+						/>
+					))}
 				</div>
 
 				<div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60"></div>
@@ -142,7 +178,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 									type="button"
 									onClick={(e) => {
 										e.preventDefault();
-										setCurrentSlide(idx);
+										handleSlideChange(idx);
 									}}
 									className={`h-1.5 rounded-full transition-all duration-300 ${
 										currentSlide === idx
