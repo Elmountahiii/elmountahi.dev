@@ -2,7 +2,7 @@
 
 A modern, sleek portfolio template built with **React 19**, **TypeScript**, **Vite**, and **Tailwind CSS 4**. Perfect for developers, designers, and creative professionals who want a beautiful, fully-featured portfolio without the hassle of building from scratch.
 
-![Portfolio Preview](./images/main_image.png)
+![Portfolio Preview](./images/portfolio_app.png)
 
 ##  Features
 
