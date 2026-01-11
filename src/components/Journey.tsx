@@ -1,4 +1,4 @@
-import React, { useState, useId } from "react";
+import React, { useState } from "react";
 import {
 	GraduationCap,
 	Award,
@@ -55,7 +55,6 @@ const JourneySection: React.FC = () => {
 	const [expandedCerts, setExpandedCerts] = useState<number[]>(
 		CERTIFICATIONS.map((_, i) => i),
 	);
-	const sectionId = useId();
 
 	const toggleCert = (index: number) => {
 		setExpandedCerts((prev) =>
